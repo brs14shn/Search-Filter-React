@@ -22,6 +22,7 @@ function App() {
         }).map((val,key)=>{
           return(
             <div key={key}>
+              <img src={val.images} alt="" />
               <p>{val.first_name}</p>
             </div>
           )
