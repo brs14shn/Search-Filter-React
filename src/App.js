@@ -3,16 +3,8 @@ import './App.css';
 import {data} from "./helper/data"
 
 function App() {
-  const [search, setSearch] = useState([])
+  const [search, setSearch] = useState("")
 
-  const handleFilter=(e)=>{
-    const newWord=e.target.value
-    console.log(newWord);
-    const filter=data.filter((value)=>{
-      return value.first_name.toLowerCase().includes(newWord.toLowerCase)
-    })
-    setSearch(filter)
-  }
 
 
 
@@ -20,11 +12,16 @@ function App() {
   
   return (
     <div className="App">
-      <input type="text" placeholder='Search...' onChange={handleFilter} />
+      <input type="text" placeholder='Search...' onChange={(e)=>setSearch(e.target.value)} />
       
-        {search.map((val,key)=>{
+        {data.filter((value)=>{
+
+          if(value.first_name.toLowerCase().includes(search.toLowerCase())){
+            return value
+          }
+        }).map((val,key)=>{
           return(
-            <div>
+            <div key={key}>
               <p>{val.first_name}</p>
             </div>
           )
