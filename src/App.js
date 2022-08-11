@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-     <FilterData search={search} setSearch={setSearch} data={data}/>
+     {/* <FilterData search={search} setSearch={setSearch} data={data}/> */}
       <Filters/>
       
     </div>
